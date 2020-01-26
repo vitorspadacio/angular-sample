@@ -16,6 +16,8 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': ['error'],
     'import/extensions': [0],
     'import/prefer-default-export': [0],
+    'no-empty-function': [0],
+    'no-useless-constructor': [0],
     'semi': ['error', 'never'],
   },
   env: { browser: true, jest: true },
