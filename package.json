@@ -1,0 +1,49 @@
+{
+  "name": "angular-sample",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "jest --watch --coverage",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "~8.2.14",
+    "@angular/common": "~8.2.14",
+    "@angular/compiler": "~8.2.14",
+    "@angular/core": "~8.2.14",
+    "@angular/forms": "~8.2.14",
+    "@angular/platform-browser": "~8.2.14",
+    "@angular/platform-browser-dynamic": "~8.2.14",
+    "@angular/router": "~8.2.14",
+    "rxjs": "~6.4.0",
+    "tslib": "^1.10.0",
+    "zone.js": "~0.9.1"
+  },
+  "devDependencies": {
+    "@angular-builders/custom-webpack": "^8.4.1",
+    "@angular-devkit/build-angular": "~0.803.23",
+    "@angular/cli": "~8.3.23",
+    "@angular/compiler-cli": "~8.2.14",
+    "@angular/language-service": "~8.2.14",
+    "@testing-library/angular": "^8.2.0",
+    "@testing-library/jest-dom": "^5.0.2",
+    "@types/jest": "^24.9.1",
+    "@types/node": "~8.9.4",
+    "@typescript-eslint/eslint-plugin": "^2.17.0",
+    "@typescript-eslint/eslint-plugin-tslint": "^2.17.0",
+    "@typescript-eslint/parser": "^2.17.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-loader": "^3.0.3",
+    "eslint-plugin-import": "^2.20.0",
+    "jest": "^25.1.0",
+    "jest-preset-angular": "^8.0.0",
+    "ts-node": "~7.0.0",
+    "tslint": "^6.0.0",
+    "typescript": "~3.5.3"
+  }
+}
