@@ -5,10 +5,11 @@
 <form>
   <label>
     <span>Descrição:</span>
-    <input type='text' />
+    <input type='text' [formControl]='description' />
   </label>
+  <button (click)='handleAddClick()'>Adicionar</button>
 </form>
 
 <ul id='todo-list'>
-  <li>Placeholder</li>
+  <li *ngFor='let task of tasks'>{{task.description}}</li>
 </ul>
