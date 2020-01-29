@@ -11,5 +11,5 @@
 </form>
 
 <ul id='todo-list'>
-  <li *ngFor='let task of tasks'>{{task.description}}</li>
+  <li *ngFor='let task of tasks$ | async'>{{task.description}}</li>
 </ul>

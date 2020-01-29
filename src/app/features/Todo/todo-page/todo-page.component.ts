@@ -1,5 +1,11 @@
 import { Component } from '@angular/core'
 import { FormControl } from '@angular/forms'
+import { Store, select } from '@ngrx/store'
+import { Observable } from 'rxjs'
+
+import { TodoState } from '../todo.state'
+import { Task } from '../todo.model'
+import { Actions } from '../todo.actions'
 
 @Component({
   selector: 'app-todo-page',
@@ -7,15 +13,15 @@ import { FormControl } from '@angular/forms'
   styleUrls: ['./todo-page.component.scss'],
 })
 export class TodoPageComponent {
-  tasks = [
-    { id: 1, description: 'TesteA' },
-    { id: 2, description: 'TesteB' },
-  ]
+  tasks$: Observable<Task[]>
+
+  constructor(private store: Store<{ todo: TodoState }>) {
+    this.tasks$ = store.pipe(select((state) => state.todo.tasks))
+  }
 
   description = new FormControl('')
 
   handleAddClick() {
-    const newId = this.tasks[this.tasks.length - 1].id + 1
-    this.tasks = [...this.tasks, { id: newId, description: this.description.value }]
+    this.store.dispatch(Actions.addTask({ description: this.description.value }))
   }
 }
