@@ -1,33 +1,37 @@
 import { BrowserModule } from '@angular/platform-browser'
 import { NgModule } from '@angular/core'
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { RouterModule } from '@angular/router'
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 import { StoreModule } from '@ngrx/store'
 
-import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
-import { reducers } from './features/reducers'
+import { TodoModule } from './features/Todo/todo.module'
 
-import { TodoPageComponent } from './features/Todo/todo-page/todo-page.component'
 import { environment } from '../environments/environment'
+
+const rootRoutes = [
+  { path: '', redirectTo: '/todo', pathMatch: 'full' },
+]
+
+const storeConfig = {
+  runtimeChecks: {
+    strictStateImmutability: true,
+    strictActionImmutability: true,
+  },
+}
+
+const devToolsConfig = { maxAge: 25, logOnly: environment.production }
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodoPageComponent,
   ],
   imports: [
-    ReactiveFormsModule,
-    FormsModule,
+    RouterModule.forRoot(rootRoutes),
+    StoreModule.forRoot({}, storeConfig),
+    StoreDevtoolsModule.instrument(devToolsConfig),
     BrowserModule,
-    AppRoutingModule,
-    StoreModule.forRoot(reducers, {
-      runtimeChecks: {
-        strictStateImmutability: true,
-        strictActionImmutability: true,
-      },
-    }),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    TodoModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
