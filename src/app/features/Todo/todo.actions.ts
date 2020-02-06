@@ -1,9 +1,11 @@
 import { createAction, props } from '@ngrx/store'
 
-export const Types = {
+export const TodoTypes = {
   ADD_TASK: '[Todo] Add task',
+  INSERT_TASK: '[Todo] Insert task',
 }
 
-export const Actions = {
-  addTask: createAction(Types.ADD_TASK, props<{ description: string }>()),
+export const TodoActions = {
+  addTask: createAction(TodoTypes.ADD_TASK, props<{ description: string }>()),
+  insertTask: createAction(TodoTypes.INSERT_TASK, props<{ id: string, description: string }>()),
 }

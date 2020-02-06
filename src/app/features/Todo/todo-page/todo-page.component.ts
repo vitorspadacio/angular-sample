@@ -5,7 +5,7 @@ import { Observable } from 'rxjs'
 
 import { TodoState } from '../todo.state'
 import { Task } from '../todo.model'
-import { Actions } from '../todo.actions'
+import { TodoActions } from '../todo.actions'
 
 @Component({
   selector: 'app-todo-page',
@@ -22,6 +22,6 @@ export class TodoPageComponent {
   description = new FormControl('')
 
   handleAddClick() {
-    this.store.dispatch(Actions.addTask({ description: this.description.value }))
+    this.store.dispatch(TodoActions.addTask({ description: this.description.value }))
   }
 }

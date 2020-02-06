@@ -1,21 +1,13 @@
 import { Action, createReducer, on } from '@ngrx/store'
 import { TodoState, initialState } from './todo.state'
-import { Actions } from './todo.actions'
+import { TodoActions } from './todo.actions'
 
-const addTask = (state: TodoState, { description }) => {
-  const newId = state.tasks[state.tasks.length - 1].id + 1
-
-  const newTask = {
-    id: newId,
-    description,
-  }
-
-  return { ...state, tasks: [...state.tasks, newTask] }
-}
+const insertTask = (state: TodoState, { id, description }) => (
+  { ...state, tasks: [...state.tasks, { id, description }] })
 
 const reducer = createReducer(
   initialState,
-  on(Actions.addTask, addTask),
+  on(TodoActions.insertTask, insertTask),
 )
 
 export function TodoReducer(

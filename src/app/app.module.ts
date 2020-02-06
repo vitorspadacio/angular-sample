@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser'
+import { EffectsModule } from '@ngrx/effects'
 import { NgModule } from '@angular/core'
 import { RouterModule } from '@angular/router'
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'
@@ -27,10 +28,11 @@ const devToolsConfig = { maxAge: 25, logOnly: environment.production }
     AppComponent,
   ],
   imports: [
+    BrowserModule,
     RouterModule.forRoot(rootRoutes),
     StoreModule.forRoot({}, storeConfig),
+    EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument(devToolsConfig),
-    BrowserModule,
     TodoModule,
   ],
   providers: [],

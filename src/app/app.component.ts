@@ -14,7 +14,5 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.titleService.setTitle(this.title)
-    const replacer = (key, value) => ((typeof value === 'function') ? value.name : value)
-    console.log('Routes: ', JSON.stringify(this.router.config, replacer, 2))
   }
 }
